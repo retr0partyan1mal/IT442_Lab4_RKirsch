@@ -73,13 +73,31 @@ namespace MMABooksTests
         [Test]
         public void CreateTest()
         {
+            // The following code was needed or else the test would not pass.
+            s = dbContext.State.Find("HI");
+            if (s != null)
+            {
+                dbContext.State.Remove(s);
+                dbContext.SaveChanges();
+            }
 
+            s = new State();
+            s.StateCode = "HI";
+            s.StateName = "Hawaii";
+            dbContext.State.Add(s);
+            dbContext.SaveChanges();
+            Assert.IsNotNull(dbContext.State.Find("HI"));
         }
 
         [Test]
         public void UpdateTest()
         {
-
+            s = dbContext.State.Find("OR");
+            s.StateName = "Oregon";
+            dbContext.State.Update(s);
+            dbContext.SaveChanges();
+            s = dbContext.State.Find("OR");
+            Assert.AreEqual("Oregon", s.StateName);
         }
 
         public void PrintAll(List<State> states)

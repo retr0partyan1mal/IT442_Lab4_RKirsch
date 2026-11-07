@@ -1,10 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using MMABooksEFClasses.MarisModels;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-
-using NUnit.Framework;
-using MMABooksEFClasses.MarisModels;
-using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace MMABooksTests
 {
@@ -81,22 +81,35 @@ namespace MMABooksTests
         [Test]
         public void DeleteTest()
         {
-            c = dbContext.Customer.Find("HI");
+            c = dbContext.Customer.Find(531);
             dbContext.Customer.Remove(c);
             dbContext.SaveChanges();
-            Assert.IsNull(dbContext.Customer.Find("HI"));
+            Assert.IsNull(dbContext.Customer.Find(531));
         }
 
         [Test]
         public void CreateTest()
         {
-
+            c = new Customer();
+            c.Name = "Scooby Doo";
+            c.Address = "210 Spooky Street";
+            c.City = "Coolsville";
+            c.StateCode = "OH";
+            c.ZipCode = "1969";
+            dbContext.Customer.Add(c);
+            dbContext.SaveChanges();
+            Assert.IsNotNull(dbContext.Customer.Find(c.CustomerID));
         }
 
         [Test]
         public void UpdateTest()
         {
-
+            c = dbContext.Customer.Find(391);
+            c.Name = "Grohl, Dave";
+            dbContext.Customer.Update(c);
+            dbContext.SaveChanges();
+            c = dbContext.Customer.Find(391);
+            Assert.AreEqual("Grohl, Dave", c.Name);
         }
 
         public void PrintAll(List<Customer> customers)

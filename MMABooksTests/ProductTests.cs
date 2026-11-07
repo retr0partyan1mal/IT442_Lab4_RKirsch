@@ -76,13 +76,25 @@ namespace MMABooksTests
         [Test]
         public void CreateTest()
         {
-
+            p = new Product();
+            p.ProductCode = "A320";
+            p.Description = "Frosted Monster Cookie";
+            p.OnHandQuantity = 400;
+            p.UnitPrice = 3.50m;
+            dbContext.Product.Add(p);
+            dbContext.SaveChanges();
+            Assert.IsNotNull(dbContext.Product.Find("A320"));
         }
 
         [Test]
         public void UpdateTest()
         {
-
+            p = dbContext.Product.Find("ADC4");
+            p.Description = "Murach's ADO.NET 4 with C# 2026";
+            dbContext.Product.Update(p);
+            dbContext.SaveChanges();
+            p = dbContext.Product.Find("ADC4");
+            Assert.AreEqual("Murach's ADO.NET 4 with C# 2026", p.Description);
         }
 
         public void PrintAll(List<Product> products)
