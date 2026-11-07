@@ -34,9 +34,9 @@ namespace MMABooksTests
         [Test]
         public void GetByPrimaryKeyTest()
         {
-            p = dbContext.Product.Find("OR");
+            p = dbContext.Product.Find("JAVP");
             Assert.IsNotNull(p);
-            Assert.AreEqual("Ore", p.ProductCode);
+            Assert.AreEqual("Murach's Java Programming", p.Description);
             Console.WriteLine(p);
         }
 
@@ -44,9 +44,9 @@ namespace MMABooksTests
         public void GetUsingWhere()
         {
             // get a list of all of the products that have a unit price of 56.50
-            products = dbContext.Product.Where(s => s.ProductCode.StartsWith("A")).OrderBy(s => s.ProductCode).ToList();
-            Assert.AreEqual(16, products.Count);
-            Assert.AreEqual("Alabama", products[0].ProductCode);
+            products = dbContext.Product.Where(s => s.UnitPrice == 56.50m).OrderBy(s => s.ProductCode).ToList();
+            Assert.AreEqual(7, products.Count);
+            Assert.AreEqual("A4CS", products[0].ProductCode);
             PrintAll(products);
         }
 
@@ -67,10 +67,10 @@ namespace MMABooksTests
         [Test]
         public void DeleteTest()
         {
-            p = dbContext.Product.Find("HI");
+            p = dbContext.Product.Find("SQ12");
             dbContext.Product.Remove(p);
             dbContext.SaveChanges();
-            Assert.IsNull(dbContext.Product.Find("HI"));
+            Assert.IsNull(dbContext.Product.Find("SQ12"));
         }
 
         [Test]
