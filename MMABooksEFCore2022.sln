@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32819.101
+# Visual Studio Version 18
+VisualStudioVersion = 18.11.12328.437 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMABooksEFClasses", "MMABooksEFClasses\MMABooksEFClasses.csproj", "{F660FF91-FC76-4425-A8FC-BEC6B3BCC2A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMABooksTests", "MMABooksTests\MMABooksTests.csproj", "{47A0FD5B-CC46-4F22-AED1-C0B27CB17427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMABOOKSRESTAPI", "MMABOOKSRESTAPI\MMABOOKSRESTAPI.csproj", "{EB26AA37-7E12-4342-93FC-D9DB8F0481FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{47A0FD5B-CC46-4F22-AED1-C0B27CB17427}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47A0FD5B-CC46-4F22-AED1-C0B27CB17427}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47A0FD5B-CC46-4F22-AED1-C0B27CB17427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB26AA37-7E12-4342-93FC-D9DB8F0481FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB26AA37-7E12-4342-93FC-D9DB8F0481FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB26AA37-7E12-4342-93FC-D9DB8F0481FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB26AA37-7E12-4342-93FC-D9DB8F0481FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
